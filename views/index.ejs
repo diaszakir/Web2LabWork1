@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Items</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <h1>Item List</h1>
+    <ul>
+      <% items.forEach(item => { %>
+      <li>
+        <strong><%= item.name %></strong>: <%= item.description %>
+        <a href="/edit/<%= item.id %>">Edit</a>
+        <form
+          action="/delete/<%= item.id %>"
+          method="POST"
+          style="display: inline"
+        >
+          <button type="submit">Delete</button>
+        </form>
+      </li>
+      <% }); %>
+    </ul>
+    <a href="/add">Add New Item</a>
+  </body>
+</html>
